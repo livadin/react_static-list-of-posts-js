@@ -16,7 +16,7 @@ function getUserById(userId) {
 }
 
 function getCommentsByPostId(postId) {
-  return commentsFromServer.filter(comment => comment.postId === postId);
+  return commentsFromServer.filter(comment => comment.postId === postId) || [];
 }
 
 const posts = postsFromServer.map(post => ({
@@ -28,6 +28,7 @@ const posts = postsFromServer.map(post => ({
 export const App = () => (
   <section className="App">
     <h1 className="App__title">Static list of posts</h1>
+
     <PostList posts={posts} />
   </section>
 );
